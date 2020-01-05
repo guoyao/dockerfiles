@@ -91,7 +91,7 @@ RUN apk add --no-cache --virtual .build-deps-yarn curl gnupg tar \
   
 
 # --------------------- install git -------------------------
-RUN apk add --no-cache ca-certificates git git-lfs openssh curl perl
+RUN apk add --no-cache ca-certificates git git-lfs openssh curl perl wget
 # --------------------- install git -------------------------
 
 
