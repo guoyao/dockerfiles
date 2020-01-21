@@ -5,4 +5,8 @@ RUN yum install -y fontconfig freetype libX11 libXext libXrender libjpeg libpng 
     && rpm -i wkhtmltox-0.12.6-0.20180618.3.dev.e6d6f54.centos7.x86_64.rpm \
     && rm -f wkhtmltox-0.12.6-0.20180618.3.dev.e6d6f54.centos7.x86_64.rpm
 
+RUN curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py && python get-pip.py && rm -f get-pip.py
+
+RUN pip install PrettyTable
+
 ENTRYPOINT ["wkhtmltopdf"]
