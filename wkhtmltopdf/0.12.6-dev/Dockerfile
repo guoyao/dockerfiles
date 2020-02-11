@@ -9,4 +9,13 @@ RUN curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py && python get-pip.py
 
 RUN pip install PrettyTable
 
+RUN yum install -y kde-l10n-Chinese glibc-common \
+    && localedef -c -f UTF-8 -i zh_CN zh_CN.utf8 \
+    && export LANG=zh_CN.UTF-8 \
+    && echo "export LANG=zh_CN.UTF-8" >> /etc/locale.conf \
+    && yum groupinstall Fonts -y
+
+ENV LANG zh_CN.UTF-8
+ENV LC_ALL zh_CN.UTF-8
+
 ENTRYPOINT ["wkhtmltopdf"]
